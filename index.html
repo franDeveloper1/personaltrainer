@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impulso Fitness</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="logo">Impulso Fitness</div>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <a href="#contacto" class="btn small">Empezar</a>
+</header>
+
+<section id="inicio" class="hero">
+
+  <div class="hero-left">
+    <h1 class="fade-in">Transformá tu cuerpo.<br>Mejorá tu vida.</h1>
+
+    <p class="fade-in">
+      Entrenamiento personalizado, motivación constante y resultados reales.
+    </p>
+
+    <div class="hero-buttons fade-in">
+      <a href="#contacto" class="btn">Empezar ahora</a>
+      <a href="#servicios" class="btn secondary">Ver servicios</a>
+    </div>
+
+    <div class="hero-tags fade-in">
+      <span>✔ Resultados reales</span>
+      <span>✔ Planes accesibles</span>
+    </div>
+  </div>
+
+  <div class="hero-right fade-in">
+<img src="gymdarkjpg.jpg" alt="gym dark">
+  </div>
+
+</section>
+
+<section class="benefits fade-in">
+  <div>💪 Planes personalizados</div>
+  <div>🏋️ Equipamiento completo</div>
+  <div>🔥 Seguimiento constante</div>
+</section>
+
+<section id="servicios" class="services">
+
+  <div class="services-left fade-in">
+    <h2>Entrená mejor</h2>
+    <p>Ofrecemos soluciones adaptadas a vos para lograr resultados reales.</p>
+  </div>
+
+  <div class="services-right">
+
+    <div class="card fade-in">
+      <h3>Entrenamiento personalizado</h3>
+      <p>Rutinas adaptadas a tu objetivo.</p>
+    </div>
+
+    <div class="card fade-in">
+      <h3>Clases grupales</h3>
+      <p>Entrená con motivación constante.</p>
+    </div>
+
+    <div class="card fade-in">
+      <h3>Planes mensuales</h3>
+      <p>Opciones accesibles.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contacto" class="cta fade-in">
+  <h2>Empezá hoy</h2>
+  <p>Contactanos y comenzá tu cambio.</p>
+  <a href="#" class="btn">Hablar por WhatsApp</a>
+</section>
+
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const appear = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+faders.forEach(el => appear.observe(el));
+</script>
+<script>
+let lastScroll = 0;
+const nav = document.querySelector(".nav");
+
+window.addEventListener("scroll", () => {
+  let currentScroll = window.scrollY;
+
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    nav.classList.add("hide");
+    nav.classList.remove("show");
+  } else {
+    // subiendo
+    nav.classList.add("show");
+    nav.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+</body>
+</html>
