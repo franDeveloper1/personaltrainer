@@ -2,124 +2,96 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impulso Fitness</title>
+  <title>Personal Trainer</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <header class="nav">
-  <div class="logo">Impulso Fitness</div>
-
+  <h2 class="logo">Trainer</h2>
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#servicios">Servicios</a>
+    <a href="#">Inicio</a>
+    <a href="#planes">Planes</a>
     <a href="#contacto">Contacto</a>
   </nav>
-
-  <a href="#contacto" class="btn small">Empezar</a>
 </header>
 
-<section id="inicio" class="hero">
+<section class="hero reveal">
+  <div class="hero-text">
+    <h1>Transformá tu cuerpo</h1>
+    <p>Planes personalizados para lograr tu mejor versión</p>
 
-  <div class="hero-left">
-    <h1 class="fade-in">Transformá tu cuerpo.<br>Mejorá tu vida.</h1>
-
-    <p class="fade-in">
-      Entrenamiento personalizado, motivación constante y resultados reales.
-    </p>
-
-    <div class="hero-buttons fade-in">
-      <a href="#contacto" class="btn">Empezar ahora</a>
-      <a href="#servicios" class="btn secondary">Ver servicios</a>
-    </div>
-
-    <div class="hero-tags fade-in">
-      <span>✔ Resultados reales</span>
-      <span>✔ Planes accesibles</span>
+    <div class="hero-buttons">
+      <a href="#" class="btn primary">Ver planes</a>
+      <a href="#contacto" class="btn secondary">Contacto</a>
     </div>
   </div>
-
-  <div class="hero-right fade-in">
-<img src="gymdarkjpg.jpg" alt="gym dark">
-  </div>
-
 </section>
 
-<section class="benefits fade-in">
-  <div>💪 Planes personalizados</div>
-  <div>🏋️ Equipamiento completo</div>
-  <div>🔥 Seguimiento constante</div>
+<section class="trainer reveal">
+  <div class="trainer-container">
+    <div class="trainer-img">
+      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1">
+    </div>
+
+    <div class="trainer-text">
+      <h2>Entrenador Personal</h2>
+      <p>Más de 5 años ayudando a personas a transformar su físico.</p>
+      <a href="#planes" class="btn primary">Ver planes</a>
+    </div>
+  </div>
 </section>
 
-<section id="servicios" class="services">
+<section class="plans reveal" id="planes">
+  <h2>Elegí tu plan</h2>
 
-  <div class="services-left fade-in">
-    <h2>Entrená mejor</h2>
-    <p>Ofrecemos soluciones adaptadas a vos para lograr resultados reales.</p>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Básico</h3>
+      <p class="price">$10.000</p>
+      <a href="#" class="btn primary">Comprar</a>
+    </div>
+
+    <div class="card popular">
+      <span class="badge">Más elegido</span>
+      <h3>Intermedio</h3>
+      <p class="price">$25.000</p>
+      <a href="#" class="btn primary">Comprar</a>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <p class="price">$50.000</p>
+      <a href="#" class="btn primary">Comprar</a>
+    </div>
+
   </div>
-
-  <div class="services-right">
-
-    <div class="card fade-in">
-      <h3>Entrenamiento personalizado</h3>
-      <p>Rutinas adaptadas a tu objetivo.</p>
-    </div>
-
-    <div class="card fade-in">
-      <h3>Clases grupales</h3>
-      <p>Entrená con motivación constante.</p>
-    </div>
-
-    <div class="card fade-in">
-      <h3>Planes mensuales</h3>
-      <p>Opciones accesibles.</p>
-    </div>
-
-  </div>
-
 </section>
 
-<section id="contacto" class="cta fade-in">
-  <h2>Empezá hoy</h2>
-  <p>Contactanos y comenzá tu cambio.</p>
-  <a href="#" class="btn">Hablar por WhatsApp</a>
+<section class="contact reveal" id="contacto">
+  <h2>Contacto</h2>
+
+  <div class="contact-buttons">
+    <a href="#" class="whatsapp">WhatsApp</a>
+    <a href="#" class="instagram">Instagram</a>
+  </div>
 </section>
 
 <script>
-const faders = document.querySelectorAll('.fade-in');
+  const reveals = document.querySelectorAll(".reveal");
 
-const appear = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
   });
-});
-
-faders.forEach(el => appear.observe(el));
 </script>
-<script>
-let lastScroll = 0;
-const nav = document.querySelector(".nav");
 
-window.addEventListener("scroll", () => {
-  let currentScroll = window.scrollY;
-
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    nav.classList.add("hide");
-    nav.classList.remove("show");
-  } else {
-    // subiendo
-    nav.classList.add("show");
-    nav.classList.remove("hide");
-  }
-
-  lastScroll = currentScroll;
-});
-</script>
 </body>
-</html>
